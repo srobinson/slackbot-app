@@ -24,5 +24,6 @@
   "[typescriptreact]": {
     "editor.formatOnSave": true
   },
-  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Cmonospace"
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Cmonospace",
+  "npm.packageManager": "yarn"
 }
