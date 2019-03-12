@@ -13,7 +13,7 @@ export default class Routes {
         })
       })
 
-      .get("/callback", sc.callback)
+      .post("/callback", sc.callback)
 
       .get("*", (req: Request, res: Response) => {
         throw new ResourceNotFoundException(req, res)
