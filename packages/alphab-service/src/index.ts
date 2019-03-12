@@ -15,7 +15,7 @@ process.on("SIGINT", function() {
 
 // slackClient.start()
 
-const PORT = process.env.SERVICE_PORT || "3001"
+const PORT = process.env.PORT || "3001"
 
 if (!module.parent) {
   App.listen(parseInt(PORT, 10), (err: object) => {
