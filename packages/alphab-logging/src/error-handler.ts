@@ -8,7 +8,7 @@ export const errorHandlerMiddleware = (
   res: Response,
   _: NextFunction,
 ) => {
-  const statusCode = res.statusCode || 500
+  const statusCode: number = res.statusCode || 500
   req.error = Object.assign({}, {statusCode}, {err: jsonifyError(err)})
   res.status(statusCode)
   res.json(req.error)

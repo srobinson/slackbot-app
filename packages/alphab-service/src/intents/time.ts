@@ -1,11 +1,13 @@
 /* tslint:disable:no-any */
+import * as moment from "moment"
 import {formatRegionName, geocode, timezone} from "@alphab/client"
-import {timeFromTimeStamp} from "@alphab/utils"
 
 const intent = async (msg: any, data: any) => {
   if (!data.location) {
-    const time = timeFromTimeStamp(msg.ts)
-    return `The time is ${time}`
+    const time = moment(msg.timestamp).format("LT")
+    return {
+      text: `The time is ${time}`,
+    }
   }
   const searchRegion = data.location[0].value
   const coords = await geocode(searchRegion)
@@ -14,9 +16,14 @@ const intent = async (msg: any, data: any) => {
     lat: coords.lat,
     lng: coords.lon,
   })
-  const time = timeFromTimeStamp(date.timestamp)
+  return formatTime(date.timestamp, region)
+}
 
-  return `The time in ${region} is ${time}`
+const formatTime = (timestamp: number, region: string) => {
+  const time = moment(timestamp * 1000).format("LT")
+  return {
+    text: `The time in ${region} is ${time}`,
+  }
 }
 
 export default intent

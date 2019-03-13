@@ -6,7 +6,10 @@
     "eofline": true,
     "jsx-no-multiline-js": false,
     "label-position": true,
-    "max-line-length": [true, { "limit": 80 }],
+    "max-line-length": [true, {
+      "limit": 80,
+      "ignore-pattern": "`\""
+    }],
     "member-ordering": [
       true,
       {

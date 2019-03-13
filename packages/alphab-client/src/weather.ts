@@ -16,12 +16,9 @@ export const weather = async (location: any) => {
   } catch (e) {
     console.log(e)
     const formattedRegion = formatRegionName(location.region_name)
-    throw new Error(`Sorry, I cannot find weather for ${formattedRegion}`)
+    throw new Error(
+      `I'm terribly sorry, ` +
+        `I can't seem the find weather for ${formattedRegion}`,
+    )
   }
-}
-
-export const formatWeather = (data: any, region: string) => {
-  const description = data.weather[0].description
-  const temp = data.main.temp
-  return `${region} is ${temp}℃ with ${description}`
 }

@@ -5,9 +5,12 @@ const LOCATIONIQ_API = process.env.LOCATIONIQ_API
 const LOCATIONIQ_API_KEY = process.env.LOCATIONIQ_API_KEY
 
 export const geocode = async (region: string) => {
-  const url = `
-  ${LOCATIONIQ_API}?key=${LOCATIONIQ_API_KEY}&q=${region}&format=json`
-  const response = await request.get(url)
+  const url =
+    `${LOCATIONIQ_API}?key=${LOCATIONIQ_API_KEY}` + `&q=${region}&format=json`
+  const response = await request.get(url).catch(e => {
+    console.log(e)
+    throw new Error(`Is ${region} even _on this planet_?`)
+  })
   const location = response.body[0]
   return location
 }

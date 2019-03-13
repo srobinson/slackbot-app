@@ -17,7 +17,7 @@
     "lint": "lerna run lint",
     "prepare": "lerna run prepare",
     "start": "lerna run start",
-    "test": "yarn lint NODE_ENV=test jest --runInBand --env=node --colors",
+    "test": "yarn lint && NODE_ENV=test jest --runInBand --env=node --colors",
     "test:fast": "NODE_ENV=test jest --runInBand --env=node --colors",
     "test:watch": "yarn lint && NODE_ENV=test jest --runInBand --env=node --colors --watch",
     "watch": "lerna run --parallel watch"
@@ -25,7 +25,6 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "@slack/client": "4.11.0",
     "@types/superagent": "4.1.0",
     "core-js": "2.6.5",
     "dotenv": "6.2.0",

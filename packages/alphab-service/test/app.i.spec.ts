@@ -19,14 +19,14 @@ xdescribe("GET /404", () => {
   })
 })
 
-describe("POST /api/callback", () => {
+xdescribe("POST /api/callback", () => {
   it("should throw if no body", async () => {
     const response = await GetResourceResponse("/api/callback", "post")
     expect(response.status).toBe(204)
   })
 })
 
-xdescribe("POST /api/callback", () => {
+describe("POST /api/callback", () => {
   it("should tell the weather", async () => {
     const response = await GetResourceResponse("/api/callback", "post", {
       channel_id: "DF98QD020",

@@ -1,3 +1,4 @@
+/* tslint:disable:no-any */
 import * as request from "superagent"
 import * as moment from "moment"
 import "./config"
@@ -15,4 +16,17 @@ export const timezone = async (geo: GEO_LOC) => {
   const response = await request.get(url)
   const result = response.body
   return result
+}
+
+
+export const formatTime = (data: any, region: string) => {
+  const description = data.weather[0].description
+  return {
+    attachments: [
+      {
+        text: description,
+      },
+    ],
+    text: `It's ${Math.round(data.main.temp)}℃ right now.`,
+  }
 }

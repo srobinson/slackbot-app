@@ -1,7 +1,5 @@
-/* tslint:disable:no-any */
 import {logger} from "@alphab/logging"
 import {jsonifyError} from "@alphab/utils"
-// import {slackClient} from "./bot"
 import App from "./app"
 import "./config"
 
@@ -12,8 +10,6 @@ process.on("unhandledRejection", error => {
 process.on("SIGINT", function() {
   process.exit()
 })
-
-// slackClient.start()
 
 const PORT = process.env.PORT || "3001"
 
