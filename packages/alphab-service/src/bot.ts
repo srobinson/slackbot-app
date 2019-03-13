@@ -23,7 +23,10 @@ slackClient.on("message", async (msg: any) => {
       if (fs.existsSync(intentPath)) {
         try {
           await slackClient.sendTyping(msg.channel)
-          const answer = await require(`./intents/${intent.value}.ts`).default(msg, res)
+          const answer = await require(`./intents/${intent.value}.ts`).default(
+            msg,
+            res,
+          )
           await slackClient.sendMessage(answer, msg.channel)
         } catch (e) {
           await slackClient.sendMessage(e.message, msg.channel)

@@ -5,7 +5,8 @@ export const jsonifyError = (value: any) => {
       return destroyCircular(value, [])
     }
     if (typeof value === "function") {
-      // JSON.stringify discards functions. We do too, unless a function is thrown directly.
+      // JSON.stringify discards functions.
+      // We do too, unless a function is thrown directly.
       return `[Function: ${value.name || "anonymous"}]`
     }
   } catch (e) {

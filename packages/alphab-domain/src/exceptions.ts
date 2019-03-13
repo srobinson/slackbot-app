@@ -11,13 +11,6 @@ abstract class DomainError extends Error {
   }
 }
 
-export class ApiException extends DomainError {
-  constructor(message: string) {
-    super(message)
-    Object.setPrototypeOf(this, ApiException.prototype)
-  }
-}
-
 export class InternalException extends DomainError {
   error: Error
   requestId?: string
@@ -28,10 +21,17 @@ export class InternalException extends DomainError {
   }
 }
 
-export class ResourceNotFoundException extends DomainError {
+export class ApiException extends DomainError {
+  constructor(res: Response, message: string, status: number = 500) {
+    super(message)
+    res.status(status)
+    Object.setPrototypeOf(this, ApiException.prototype)
+  }
+}
+
+export class ResourceNotFoundException extends ApiException {
   constructor(req: Request, res: Response) {
-    super(`Resource ${req.originalUrl} was not found.`)
-    res.status(404)
+    super(res, `Resource ${req.originalUrl} was not found.`, 404)
     Object.setPrototypeOf(this, ResourceNotFoundException.prototype)
   }
 }

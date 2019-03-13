@@ -1,28 +1,37 @@
 {
   "editor.insertSpaces": true,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [
-    100
-  ],
   "editor.tabSize": 2,
   "files.encoding": "utf8",
   "files.trimTrailingWhitespace": true,
   "files.useExperimentalFileWatcher": true,
   "files.insertFinalNewline": true,
   "prettier.semi": false,
+  "prettier.printWidth": 80,
+  "prettier.tslintIntegration": true,
+  "tslint.autoFixOnSave": true,
   "search.exclude": {
     "**/.cache/**": true,
     "**/dist/**": true,
     "**/public/**": true,
   },
   "[javascript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+      80
+    ],
   },
   "[typescript]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+      80
+    ],
   },
   "[typescriptreact]": {
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+      80
+    ],
   },
   "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Cmonospace",
   "npm.packageManager": "yarn"

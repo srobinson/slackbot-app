@@ -15,14 +15,14 @@ class Express {
     const app: express.Application = express()
 
     app
-      .set("port", process.env.WIKI_SERVICE_PORT)
+      // .set("port", process.env.WIKI_SERVICE_PORT)
       // .use(cors())
       .use(bodyParser.urlencoded({extended: false}))
       .use(bodyParser.json())
       // .use(express.static("public"))
       .use(enhanceRequestMiddleware)
       .use(logRequestMiddleware)
-      .use("/api", Routes.api())
+      .use("/", Routes.roots())
       .use(errorHandlerMiddleware)
 
     return app

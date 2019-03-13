@@ -22,7 +22,11 @@ export const generateInfoMessage = (req: Request) => ({
 })
 
 // tslint:disable:object-literal-sort-keys
-export const logRequestMiddleware = (req: Request, res: Response, next: NextFunction) => {
+export const logRequestMiddleware = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
   logger.info(generateInfoMessage(req))
 
   const cleanup = () => {

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@alphab/client": "0.0.1",
+    "@alphab/domain": "0.0.1",
     "@alphab/logging": "0.0.1",
     "@alphab/utils": "0.0.1"
   }

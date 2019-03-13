@@ -3,22 +3,27 @@ import {ResourceNotFoundException} from "@alphab/domain"
 import {slackAppController as sc} from "./resources"
 
 export default class Routes {
-  public static api() {
-    const api: Router = Router()
-
-    api
+  public static roots() {
+    const router: Router = Router()
+    router
       .get("/", (_, res: Response) => {
         res.json({
           status: "OK",
         })
       })
 
-      .post("/callback", sc.callback)
+      .get("/api", (_, res: Response) => {
+        res.json({
+          resources: ["callback"],
+        })
+      })
 
-      .get("*", (req: Request, res: Response) => {
+      .post("/api/callback", sc.callback)
+
+      .all("*", (req: Request, res: Response) => {
         throw new ResourceNotFoundException(req, res)
       })
 
-    return api
+    return router
   }
 }

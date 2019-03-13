@@ -1,6 +1,6 @@
 {
   "bracketSpacing": false,
-  "printWidth": 100,
+  "printWidth": 79,
   "semi": false,
   "singleQuote": false,
   "trailingComma": "all"
